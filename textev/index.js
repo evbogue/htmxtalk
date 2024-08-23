@@ -42,7 +42,10 @@ app.post('/send', (req, res) => {
     body: req.body.message,
     headers: { 'Priority': '5' }
   }) 
-  const sent = `<p>You sent a message: "${req.body.message}"</p>`
+  const sent = `
+   <p>You sent a message: "${req.body.message}"</p>
+   <button hx-get='/input' hx-target='main'>Send another</button>
+  `
   res.send(sent) 
 })
 
