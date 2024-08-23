@@ -18,7 +18,7 @@ const html = `
   <main>
     <button hx-get='/input' hx-swap='outerHTML'>Make Ev's Phone Buzz</button>
   </main></body>
-  <script>new QRCode(document.getElementById("qrcode"), "https://evbogue.com")</script>
+  <script>new QRCode(document.getElementById("qrcode"), "https://htmx-text-ev.deno.dev")</script>
 </html>
 `
 
