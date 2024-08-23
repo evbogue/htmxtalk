@@ -10,12 +10,15 @@ const html = `
 <html>
   <head>
     <script src="https://unpkg.com/htmx.org@2.0.1"></script>
+    <script src="https://unpkg.com/qrcodejs@1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.2">
-
   </head>
-  <body><main>
+  <body style="margin:2em;">
+  <div id='qrcode' style='float: right;'></div>
+  <main>
     <button hx-get='/input' hx-swap='outerHTML'>Make Ev's Phone Buzz</button>
   </main></body>
+  <script>new QRCode(document.getElementById("qrcode"), "https://evbogue.com")</script>
 </html>
 `
 
@@ -24,7 +27,6 @@ const input = `
   <button hx-post='/send' hx-include='#text' hx-target='main'>Send</button>
 `
 
-const sent = `<p>You sent a message: "${req.body.message}"</p>`
 
 app.get('/', (req, res) => {
   res.send(html)
@@ -40,6 +42,7 @@ app.post('/send', (req, res) => {
     body: req.body.message,
     headers: { 'Priority': '5' }
   }) 
+  const sent = `<p>You sent a message: "${req.body.message}"</p>`
   res.send(sent) 
 })
 

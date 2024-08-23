@@ -23,7 +23,7 @@ const render = (content) => {
         </p>
       </header>
       <main>
-      ${marked(content)}
+        ${marked(content)}
       </main>
       <footer>
         © Copyright 2024 ${db.name}
