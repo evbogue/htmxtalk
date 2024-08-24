@@ -1,4 +1,4 @@
-import express from 'npm:express'
+  <div id='qrcode' style='float: right;'></div>import express from 'npm:express'
 
 const app = express()
 const port = 3000
