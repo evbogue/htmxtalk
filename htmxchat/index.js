@@ -8,8 +8,6 @@ app.use(express.urlencoded({ extended: true }))
 
 const kv = await Deno.openKv()
 
-await kv.delete(['log'])
-
 const getFeed = async () => {
   const log = await kv.get(['log'])
   console.log(log)
